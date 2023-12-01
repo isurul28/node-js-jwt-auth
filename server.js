@@ -1,3 +1,4 @@
+const cruddb = require('./app/config/dbcrud.config')
 const express = require("express");
 const cors = require("cors");
 
@@ -57,3 +58,27 @@ function initial() {
     name: "admin"
   });
 }
+
+app.get("/person",(req,res) =>{
+  const query = "SELECT * FROM Persons"
+  cruddb.query(query,(err,data)=>{
+    if(err) return res.json(err)
+    return res.json(data)
+  })
+})
+
+app.post("/addperson",(req,res) =>{
+  const query = "INSERT INTO Persons (`PersonID`, `LastName`, `FirstName`, `Address`, `City`) VALUES (?)";
+  const values =[
+    req.body.PersonID,
+    req.body.LastName,
+    req.body.FirstName,
+    req.body.Address,
+    req.body.City
+
+  ]
+  cruddb.query(query,[values],(err,data)=>{
+    if(err) return res.json(err)
+    return res.json("Person Information Added to database successfully!!")
+  })
+})
