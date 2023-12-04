@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "https://b279a239-c0af-4973-9858-b3089192ae3e.e1-us-east-azure.choreoapps.dev:8081"
 };
 
 app.use(cors(corsOptions));
