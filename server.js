@@ -1,6 +1,8 @@
 const cruddb = require('./app/config/dbcrud.config')
 const express = require("express");
 const cors = require("cors");
+require('dotenv').config()
+
 
 const app = express();
 
@@ -30,6 +32,7 @@ db.sequelize.sync();
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
+  console.log(process.env.APP_SERVER)
 });
 
 // routes
