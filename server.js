@@ -7,7 +7,7 @@ require('dotenv').config()
 const app = express();
 
 var corsOptions = {
-  origin: "https://27c2cc09-670d-46c1-9ba3-8e2103e90bd0.e1-us-east-azure.choreoapps.dev:8081"
+  origin: "https://27c2cc09-670d-46c1-9ba3-8e2103e90bd0.e1-us-east-azure.choreoapps.dev"
 };
 
 app.use(cors(corsOptions));
